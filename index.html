@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugar Product Pricing Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Sugar Product Pricing Calculator</h1>
+    </header>
+    <main>
+        <form id="pricingForm">
+            <label for="sugarPrice">50kg Sugar Price (KZ):</label>
+            <input type="number" id="sugarPrice" required>
+
+            <div class="product-cards">
+                <div class="product-card">
+                    <h2>10kg Sacks</h2>
+                    <label for="grossProfit10kg">Gross Profit (KZ):</label>
+                    <input type="number" id="grossProfit10kg" value="600">
+
+                    <label for="retailProfit10kg">Retail Profit (KZ):</label>
+                    <input type="number" id="retailProfit10kg" value="300">
+
+                    <div class="results">
+                        <h3>Calculated Prices</h3>
+                        <p class="cost-price">Cost Price: <span id="costPrice10kg"></span> KZ</p>
+                        <table class="sale-prices">
+                            <tr>
+                                <th>Gross Sale Price</th>
+                                <th>Retail Price</th>
+                            </tr>
+                            <tr>
+                                <td id="grossSalePrice10kg"></td>
+                                <td id="retailPrice10kg"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <h2>25kg Sacks</h2>
+                    <label for="grossProfit25kg">Gross Profit (KZ):</label>
+                    <input type="number" id="grossProfit25kg" value="500">
+
+                    <label for="retailProfit25kg">Retail Profit (KZ):</label>
+                    <input type="number" id="retailProfit25kg" value="300">
+
+                    <div class="results">
+                        <h3>Calculated Prices</h3>
+                        <p class="cost-price">Cost Price: <span id="costPrice25kg"></span> KZ</p>
+                        <table class="sale-prices">
+                            <tr>
+                                <th>Gross Sale Price</th>
+                                <th>Retail Price</th>
+                            </tr>
+                            <tr>
+                                <td id="grossSalePrice25kg"></td>
+                                <td id="retailPrice25kg"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit">Calculate Prices</button>
+        </form>
+    </main>
+    <script src="scripts/calculator.js"></script>
+</body>
+</html>

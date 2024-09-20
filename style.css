@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.product-card {
+    width: 48%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-card h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.results {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.results h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.cost-price {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.sale-prices {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sale-prices th, .sale-prices td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.sale-prices th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.sale-prices td {
+    font-weight: 900;
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+button {
+    margin-top: 2rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .product-cards {
+        flex-direction: column;
+    }
+    
+    .product-card {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
