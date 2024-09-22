@@ -1,30 +1,70 @@
 async function saveAndShareReportAsPDF(reportContent) {
   try {
-    // Generate PDF using jsPDF library
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-    doc.text(reportContent, 10, 10);
 
-    // Convert PDF to Blob
+    // Set title
+    doc.setFontSize(18);
+    doc.text('Sugar Product Pricing Report', 10, 10);
+    doc.setFontSize(12);
+    doc.text('-----------------------------------', 10, 15);
+
+    // 50kg Sugar Section
+    doc.setFontSize(14);
+    doc.text('50kg Sugar', 10, 25);
+    doc.setFontSize(12);
+    doc.autoTable({
+      head: [['Product', 'Price (Kwanza)']],
+      body: [['50kg Sugar', '43,500 KZ']],
+      startY: 30,
+      theme: 'grid',
+    });
+
+    // 10kg Sacks Section
+    doc.setFontSize(14);
+    doc.text('10kg Sacks', 10, doc.autoTable.previous.finalY + 10);
+    doc.autoTable({
+      head: [['Description', 'Price (Kwanza)']],
+      body: [
+        ['Cost Price', '9,050 KZ'],
+        ['Gross Sale Price', '9,650 KZ'],
+        ['Retail Price', '9,950 KZ'],
+      ],
+      startY: doc.autoTable.previous.finalY + 15,
+      theme: 'grid',
+    });
+
+    // 25kg Sacks Section
+    doc.setFontSize(14);
+    doc.text('25kg Sacks', 10, doc.autoTable.previous.finalY + 10);
+    doc.autoTable({
+      head: [['Description', 'Price (Kwanza)']],
+      body: [
+        ['Cost Price', '22,250 KZ'],
+        ['Gross Sale Price', '22,750 KZ'],
+        ['Retail Price', '23,050 KZ'],
+      ],
+      startY: doc.autoTable.previous.finalY + 15,
+      theme: 'grid',
+    });
+
+    // Save the PDF
     const pdfBlob = doc.output('blob');
-
-    // Create a File object from the Blob
-    const pdfFile = new File([pdfBlob], 'user_report.pdf', { type: 'application/pdf' });
+    const pdfFile = new File([pdfBlob], 'sugar_product_pricing_report.pdf', { type: 'application/pdf' });
 
     // Check if the Web Share API is supported
     if (navigator.share) {
       await navigator.share({
         files: [pdfFile],
-        title: 'User Report',
-        text: 'Here is the user report in PDF format.',
+        title: 'Sugar Product Pricing Report',
+        text: 'Here is the sugar product pricing report in PDF format.',
       });
       console.log('Report shared successfully');
     } else {
-      // Fallback for browsers that don't support the Web Share API
       const pdfUrl = URL.createObjectURL(pdfBlob);
       const link = document.createElement('a');
       link.href = pdfUrl;
-      link.download = 'user_report.pdf';
+      link.download = 'sugar_product_pricing_report.pdf';
       link.click();
       URL.revokeObjectURL(pdfUrl);
       console.log('Report downloaded as PDF');
