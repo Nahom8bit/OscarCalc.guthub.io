@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sugar Product Pricing Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div id="loginPage">
@@ -20,6 +21,7 @@
         <header>
             <h1>Sugar Product Pricing Calculator</h1>
         </header>
+        <nav id="nav"></nav>
         <main>
             <div id="errorMessage" style="display: none; color: red; margin-bottom: 10px;"></div>
             <form id="pricingForm">
@@ -77,10 +79,16 @@
                 </div>
 
                 <button type="submit">Calculate Prices</button>
+                <button id="shareButton" type="button">Share Report</button>
             </form>
         </main>
     </div>
+    <noscript>
+        <p>This application requires JavaScript to function. Please enable JavaScript in your browser settings.</p>
+    </noscript>
+    <script src="scripts/script.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/calculator.js"></script>
+    <script src="scripts/share.js"></script>
 </body>
 </html>
