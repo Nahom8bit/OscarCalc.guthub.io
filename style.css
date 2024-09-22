@@ -17,12 +17,14 @@ header {
 
 main {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
+    margin: 1rem auto;
+    padding: 1rem;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     flex: 1;
+    width: 95%;
+    box-sizing: border-box;
 }
 
 form {
@@ -43,21 +45,25 @@ input {
     border-radius: 4px;
     margin-bottom: 1rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .product-cards {
     display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .product-card {
-    width: 48%;
+    width: calc(50% - 0.5rem);
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
 }
 
 .product-card h2 {
@@ -127,8 +133,9 @@ button:hover {
 
 @media (max-width: 768px) {
     main {
-        padding: 1rem;
-        margin: 1rem;
+        padding: 0.5rem;
+        width: 100%;
+        margin: 0.5rem auto;
     }
 
     .product-cards {
@@ -142,6 +149,7 @@ button:hover {
 
     input, button {
         width: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -151,16 +159,29 @@ button:hover {
     }
 
     h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .product-card h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .sale-prices th, .sale-prices td {
         padding: 5px;
-        font-size: 0.9em;
+        font-size: 0.8em;
+    }
+
+    input, button {
+        font-size: 0.9rem;
+        padding: 0.4rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    .product-card input {
+        max-width: 100%; /* Allow full width on very small screens */
     }
 }
 
